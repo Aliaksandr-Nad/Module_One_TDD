@@ -1,9 +1,11 @@
-﻿namespace CalculatorSample.Logic
+﻿using System;
+
+namespace CalculatorSample.Logic
 {
-    class Calculator
+    public class Calculator
     {
         public int Add(int x, int y)
-        {
+        {   
             return x + y;
         }
 
@@ -14,7 +16,14 @@
 
         public int Division(int x, int y)
         {
-            return x / y;
+            if (y.Equals(0))
+            {
+                return 0;
+            }
+            else
+            {
+                return x / y;
+            }
         }
 
         public int Multiply(int x, int y)
@@ -24,14 +33,15 @@
 
         public int Raising(int x, int y)
         {
-            int _ = 0;
-
-            for (int i = 0; i < y; i++)
+            if (y < 0)
             {
-                _ = Multiply(x, x);
+                return 0;
             }
-
-            return _;
+            else
+            {
+                return (int)Math.Pow(x, y);
+            }
+            
         }
     }
 }
