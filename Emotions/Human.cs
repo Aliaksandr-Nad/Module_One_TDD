@@ -1,29 +1,45 @@
-﻿using Emotions.Emotions.Interface;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Emotions.Emotions;
 
 namespace Emotions
 {
     public class Human
     {
-        private IEmotion _emotion;
+        private BaseEmotions _emotion;
+        private FearEmotion _fearEmotion;
 
-        public Human(IEmotion emotion)
+        public Human(BaseEmotions emotion)
         {
             _emotion = emotion;
         }
 
-        public string Hello()
+        public Human(FearEmotion fearEmotion)
         {
-            return $"{_emotion.Voice()}\tHello\t\t\t\t\t{_emotion.Face()}";
+            _fearEmotion = fearEmotion;
         }
 
-        public string Feeling()
+        public string HappyHello()
         {
-            return $"{_emotion.Voice()}\t{_emotion.Status()} and u?\t{_emotion.Face()}";
+            return $"{_emotion.HappyVoice()}\tHello\t\t\t\t\t{_emotion.HappyFace()}";
+        }
+
+        public string HappyFeeling()
+        {
+            return $"{_emotion.HappyVoice()}\t{_emotion.HappyStatus()} and u?\t{_emotion.HappyFace()}";
+        }
+
+        public string EvilHello()
+        {
+            return $"{_emotion.EvilVoice()}\tHello\t\t\t\t\t{_emotion.EvilFace()}";
+        }
+
+        public string EvilFeeling()
+        {
+            return $"{_emotion.EvilVoice()}\t{_emotion.EvilStatus()} and u?\t{_emotion.EvilFace()}";
+        }
+
+        public string FearFeeling()
+        {
+            return $"{_emotion.HappyStatus()} and u?";
         }
     }
 }

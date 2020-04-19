@@ -61,12 +61,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Emotions\EvilEmotion.cs" />
+    <Compile Include="Emotions\BaseEmotions.cs" />
     <Compile Include="Emotions\FearEmotion.cs" />
-    <Compile Include="Emotions\HappyEmotion.cs" />
-    <Compile Include="Emotions\Interface\IEmotion.cs" />
-    <Compile Include="Emotions\Interface\IFace.cs" />
-    <Compile Include="Emotions\Interface\IVoice.cs" />
+    <Compile Include="Emotions\IEmotion.cs" />
     <Compile Include="Human.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

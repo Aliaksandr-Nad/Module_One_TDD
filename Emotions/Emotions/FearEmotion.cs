@@ -7,21 +7,51 @@ using System.Threading.Tasks;
 
 namespace Emotions.Emotions
 {
-    class FearEmotion : IEmotion
+    public class FearEmotion : IEmotion
     {
-        public string Status()
+        public string FearStatus()
         {
             return "I'm Fear now!";
         }
 
-        public string Face()
+        public string FearFace()
         {
-            return ">_<";
+            return null;
         }
 
-        public string Voice()
+        public string FearVoice()
         {
-            return "(Scared speech):";
+            return null;
+        }
+
+        public string HappyStatus()
+        {
+            throw new NotImplementedException();
+        }
+
+        public string HappyFace()
+        {
+            throw new NotImplementedException();
+        }
+
+        public string HappyVoice()
+        {
+            throw new NotImplementedException();
+        }
+
+        public object EvilStatus()
+        {
+            throw new NotImplementedException();
+        }
+
+        public object EvilFace()
+        {
+            throw new NotImplementedException();
+        }
+
+        public object EvilVoice()
+        {
+            throw new NotImplementedException();
         }
     }
 }

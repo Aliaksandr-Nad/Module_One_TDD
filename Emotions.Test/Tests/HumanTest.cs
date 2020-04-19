@@ -10,27 +10,58 @@ namespace Emotions.Test.Tests
     public class HumanTest
     {
         private Human _human;
-        private Mock<IEmotion> _mock;
-
-        [SetUp]
-        public void SetUp()
-        {
-            _mock = new Mock<IEmotion>();
-            _human = new Human(_mock.Object);
-        }
 
         [Test]
-        public void Test_Human_Hello()
+        public void Test_Human_EvilHello()
         {
-            var _actual = _human.Hello();
+            Mock<BaseEmotions> _mock = new Mock<BaseEmotions>();
+            _human = new Human(_mock.Object);
+
+            var _actual = _human.EvilHello();
             Assert.IsNotNull(_actual);
             Assert.AreEqual(expected: "\tHello\t\t\t\t\t", actual: _actual);
         }
 
         [Test]
-        public void Test_Human_Feeling()
+        public void Test_Human_EvilFeeling()
         {
-            var _actual = _human.Feeling();
+            Mock<BaseEmotions> _mock = new Mock<BaseEmotions>();
+            _human = new Human(_mock.Object);
+
+            var _actual = _human.EvilFeeling();
+            Assert.IsNotNull(_actual);
+            Assert.AreEqual(expected: "\t and u?\t", actual: _actual);
+        }
+
+        [Test]
+        public void Test_Human_HappyHello()
+        {
+            Mock<BaseEmotions> _mock = new Mock<BaseEmotions>();
+            _human = new Human(_mock.Object);
+
+            var _actual = _human.HappyHello();
+            Assert.IsNotNull(_actual);
+            Assert.AreEqual(expected: "\tHello\t\t\t\t\t", actual: _actual);
+        }
+
+        [Test]
+        public void Test_Human_HappyFeeling()
+        {
+            Mock<BaseEmotions> _mock = new Mock<BaseEmotions>();
+            _human = new Human(_mock.Object);
+
+            var _actual = _human.HappyFeeling();
+            Assert.IsNotNull(_actual);
+            Assert.AreEqual(expected: "\t and u?\t", actual: _actual);
+        }
+
+        [Test]
+        public void Test_Human_FearFeeling()
+        {
+            Mock<FearEmotion> _mock = new Mock<FearEmotion>();
+            _human = new Human(_mock.Object);
+
+            var _actual = _human.HappyFeeling();
             Assert.IsNotNull(_actual);
             Assert.AreEqual(expected: "\t and u?\t", actual: _actual);
         }
