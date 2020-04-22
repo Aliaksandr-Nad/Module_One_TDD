@@ -2,6 +2,7 @@
 using CalculatorSample.Logic.Logger;
 using Moq;
 using NUnit.Framework;
+using System;
 using System.Diagnostics;
 
 namespace CalculatorSample.Tests
@@ -18,6 +19,25 @@ namespace CalculatorSample.Tests
             _mock = new Mock<ILogger>();
             _mock.Setup(l => l.Log(It.IsAny<string>())).Callback<string>(s => Debug.WriteLine(s));
             _calc = new Calculator(_mock.Object);
+        }
+
+        [TestCase(9, 3, new int[] { 55, 9, 900 }, TestName = "Test_SearchNumbers_Positive_Numbers")]
+        [TestCase(27, 3, new int[] { 1, 999, 999 }, TestName = "Test_SearchNumbers_Max_Sum")]
+        [TestCase(0, 3, new int[] { 1, 0, 0 }, TestName = "Test_SearchNumbers_Zero_Sum")]
+        [TestCase(0, 0, new int[] { 1, 0, 0 }, TestName = "Test_SearchNumbers_Zero_Sum_And_Range")]
+        [TestCase(4, 0, new int[0], TestName = "Test_SearchNumbers_Empty_Array")]
+        [TestCase(8, 0, new int[0], TestName = "Test_SearchNumbers_Zero_Range")]
+        public void Test_SearchNumbers(int sum, int range, int[] z)
+        {
+            var actual = _calc.SearchNumbers(sum: sum, range: range);
+            Assert.AreEqual(expected: z, actual);
+        }
+
+        [TestCase(-3, 3, TestName = "Test_SearchNumbers_Negative_Sum")]
+        [TestCase(3, -3, TestName = "Test_SearchNumbers_Negative_Range")]
+        public void Test_SearchNumbers_Negative_Pass(int sum, int range)
+        {
+            Assert.Throws<ArgumentOutOfRangeException>(() => _calc.SearchNumbers(sum: sum, range: range));
         }
 
         #region Add_Test

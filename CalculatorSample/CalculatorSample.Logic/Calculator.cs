@@ -4,7 +4,7 @@ using System.IO;
 
 namespace CalculatorSample.Logic
 {
-    public class Calculator
+    public class Calculator : FindNumberByBit
     {
         private ILogger _logger;
 
@@ -55,7 +55,6 @@ namespace CalculatorSample.Logic
             {
                 return (int)Math.Pow(x, y);
             }
-            
         }
     }
 }
